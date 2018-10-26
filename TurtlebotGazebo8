@@ -1,0 +1,22 @@
+
+https://github.com/turtlebot/turtlebot_simulator/issues/67
+
+Install the kobuki, kobuki_core, kobuki_desktop, kobuki_msgs packages as kinetic devel into your catkin workspace from:
+
+https://github.com/yujinrobot
+
+(实现方式如 rosinstall devel/ /opt/ros/kinetic/ src/kobuki/kobuki/kobuki.rosinstall src/kobuki/kobuki_core/kobuki_core.rosinstall src/kobuki/kobuki_desktop/kobuki_simulator.rosinstall， 会执行.rosinstall并下载到工作空间下的devel/中，然后按照提示source。注意可能出现某些包无法下载的Error，一般为网页或者分支名称不对的原因，需要打开.rosinstall文件，手动更改)
+
+After that, run this command:
+
+rosdep install --from-paths src -i -y
+（执行完之后应该就几行然后写successfully）
+
+Finally, install turtlebot, turtlebot_simulator and gazebo_ros_pkgs packages from:
+
+https://github.com/turtlebot
+https://github.com/ros-simulation/gazebo_ros_pkgs
+
+Then catkin_make
+(出现某个package的xml文件里面版本号不匹配问题时，直接把那个xml文件删除掉就好)
+
