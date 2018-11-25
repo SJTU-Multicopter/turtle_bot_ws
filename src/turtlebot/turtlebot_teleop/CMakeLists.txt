@@ -19,6 +19,10 @@ catkin_package(
 add_executable(turtlebot_teleop_joy src/turtlebot_joy.cpp)
 target_link_libraries(turtlebot_teleop_joy ${catkin_LIBRARIES})
 
+add_executable(ps4_joy src/ps4_joy.cpp)
+target_link_libraries(ps4_joy ${catkin_LIBRARIES})
+
+
 #############
 ## Install ##
 #############
