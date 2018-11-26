@@ -1,16 +1,19 @@
 对所有以下的执行前指令均需要source
 source ../devel/setup.bash
 
-1. 开启joy stick
+1. 启动Gazebo模型及世界，launch在 turtlebot_gazebo/launch中
+如 roslaunch turtlebot_gazebo trutlebot_test_world.launch x:=-15.0 y:=-12.0
+（此launch中添加了x, y初始位置可以选择）
+
+2. 开启joy stick
 rosrun joy joy_node  (启动不成功的话里面设备号可能要换)
 
-2. 启动驱动ps4_joy，通道映射在ps4_joy.cpp可更改，速度限制可在launch直接改
+3. 启动驱动ps4_joy，通道映射在ps4_joy.cpp可更改，速度限制可在launch直接改
 roslaunch turtlebot_teleop ps4_joy.launch
-
-3. 启动Gazebo模型及世界，launch在 turtlebot_gazebo/launch中
 
 4. 启动mapping，在另一个catkin_ws中，节点名称 mapping_turtlebot
 
-* 修改
+* 重要修改
 /home/ubuntu/chg_workspace/turtle_bot_ws/src/gazebo_ros_pkgs/gazebo_plugins/src/gazebo_ros_openni_kinect.cpp
 中的pointCloudCutoff、pointCloudCutoffMax参数值来改变传感器检测距离，现在改到了8m，原来5m
+
